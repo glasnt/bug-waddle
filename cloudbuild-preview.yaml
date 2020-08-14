@@ -15,11 +15,12 @@ steps:
              '--tag', 'pr-${_PR_NUMBER}',
              '--no-traffic']
     
-    - name: 'gcr.io/${PROJECT_ID}/set-check-status'
-      args: ['--project-id', '${PROJECT_ID}',
+    - name: 'gcr.io/${PROJECT_ID}/check-status'
+      args: ['set',
+             '--project-id', '${PROJECT_ID}',
              '--region', '${_REGION}',
              '--service', '${_SERVICE_NAME}',
-             '--tag', 'pr-${_PR_NUMBER}',
+             '--pull-request', '${_PR_NUMBER}',
              '--repo-name', '${_GITHUB_USER}/${REPO_NAME}',
              '--commit-sha', '${SHORT_SHA}']
 
